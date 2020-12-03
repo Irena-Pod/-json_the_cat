@@ -1,8 +1,5 @@
 const request = require("request");
-const lineArgument = process.argv[2].toString();
 const url = "https://api.thecatapi.com/v1/breeds/search?q=";
-
-
 
 const fetchBreedDescription = function (breedName, callback) {
   request(url + breedName, (error, response, content) => {
@@ -19,10 +16,4 @@ const fetchBreedDescription = function (breedName, callback) {
   });
 };
 
-fetchBreedDescription(lineArgument, (error, description) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(description);
-  }
-});
+module.exports = { fetchBreedDescription };
